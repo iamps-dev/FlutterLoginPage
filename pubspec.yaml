@@ -1,0 +1,31 @@
+name: authease
+description: A modern animated authentication system using Flutter + GetX.
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # 🧠 GetX for state management, navigation, and snackbar
+  get: ^4.6.6
+
+  # 🎨 Google Fonts (optional for better UI text)
+  google_fonts: ^6.1.0
+
+  # 🧍 For local data storage if you add Remember Me later
+  get_storage: ^2.1.1
+
+  # 📸 Lottie for JSON-based animations (optional, for animated screens)
+  lottie: ^3.0.0
+
+  # Default Flutter icons and themes
+  cupertino_icons: ^1.0.8
+
+flutter:
+  uses-material-design: true
+
