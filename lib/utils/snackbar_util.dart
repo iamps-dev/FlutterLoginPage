@@ -1,60 +1,100 @@
 import 'package:flutter/material.dart';
 
 class SnackbarUtil {
-  // Success
+  // ✅ Success Snackbar
   static void showSuccess(BuildContext context, String message) {
-    _showTopSnackbar(context, message, Colors.green.shade600, 'Success');
+    _showAnimatedSnackbar(
+      context,
+      title: 'Success',
+      message: message,
+      bgColor: Colors.green.shade600,
+    );
   }
 
-  // Error
+  // ❌ Error Snackbar
   static void showError(BuildContext context, String message) {
-    _showTopSnackbar(context, message, Colors.red.shade600, 'Error');
+    _showAnimatedSnackbar(
+      context,
+      title: 'Error',
+      message: message,
+      bgColor: Colors.red.shade600,
+    );
   }
 
-  // Warning
+  // ⚠️ Warning Snackbar
   static void showWarning(BuildContext context, String message) {
-    _showTopSnackbar(context, message, Colors.orange.shade600, 'Warning');
+    _showAnimatedSnackbar(
+      context,
+      title: 'Warning',
+      message: message,
+      bgColor: Colors.orange.shade600,
+    );
   }
 
-  // Private function for top snackbar
-  static void _showTopSnackbar(
-      BuildContext context, String message, Color bgColor, String title) {
+  // 🧩 Core Animated Snackbar
+  static void _showAnimatedSnackbar(
+      BuildContext context, {
+        required String title,
+        required String message,
+        required Color bgColor,
+      }) {
     final overlay = Overlay.of(context);
+    if (overlay == null) return;
 
     late OverlayEntry overlayEntry;
+    final animationController = AnimationController(
+      vsync: Navigator.of(context),
+      duration: const Duration(milliseconds: 400),
+    );
+    final animation =
+    Tween<Offset>(begin: const Offset(0, -1), end: Offset.zero)
+        .animate(CurvedAnimation(
+      parent: animationController,
+      curve: Curves.easeOutBack,
+    ));
 
     overlayEntry = OverlayEntry(
       builder: (context) => Positioned(
-        top: 40,
+        top: MediaQuery.of(context).padding.top + 10,
         left: 16,
         right: 16,
-        child: Material(
-          elevation: 6,
-          borderRadius: BorderRadius.circular(10),
-          child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-            decoration: BoxDecoration(
-              color: bgColor,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Row(
-              children: [
-                Text(
-                  '$title: ',
-                  style: const TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold),
-                ),
-                Expanded(
-                  child: Text(
-                    message,
-                    style: const TextStyle(color: Colors.white),
+        child: SlideTransition(
+          position: animation,
+          child: Material(
+            elevation: 6,
+            borderRadius: BorderRadius.circular(12),
+            color: Colors.transparent,
+            child: Container(
+              padding:
+              const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+              decoration: BoxDecoration(
+                color: bgColor,
+                borderRadius: BorderRadius.circular(12),
+                boxShadow: [
+                  BoxShadow(
+                    color: bgColor.withOpacity(0.4),
+                    blurRadius: 10,
+                    offset: const Offset(0, 4),
                   ),
-                ),
-                GestureDetector(
-                  onTap: () => overlayEntry.remove(),
-                  child: const Icon(Icons.close, color: Colors.white),
-                ),
-              ],
+                ],
+              ),
+              child: Row(
+                children: [
+                  Text(
+                    '$title: ',
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Expanded(
+                    child: Text(
+                      message,
+                      style: const TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
@@ -62,9 +102,13 @@ class SnackbarUtil {
     );
 
     overlay.insert(overlayEntry);
+    animationController.forward();
 
-    Future.delayed(const Duration(seconds: 3), () {
+    // Remove after delay with slide-up animation
+    Future.delayed(const Duration(seconds: 3), () async {
+      await animationController.reverse();
       overlayEntry.remove();
+      animationController.dispose();
     });
   }
 }

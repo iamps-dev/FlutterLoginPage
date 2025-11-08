@@ -51,10 +51,4 @@ class LoginController extends GetxController {
     passCtrl.clear();
   }
 
-  @override
-  void onClose() {
-    emailCtrl.dispose();
-    passCtrl.dispose();
-    super.onClose();
-  }
 }
