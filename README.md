@@ -1,16 +1,29 @@
-# login_page
+# 🔐 SecureLoginApp  
 
-Login page
+A Flutter app with **Login**, **Sign-Up**, and **Forgot Password** screens built using **GetX** for clean and simple state management.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 📸 Screenshots
 
-A few resources to get you started if this is your first Flutter project:
+| Login | Sign Up | Forgot Password |
+|--------|----------|----------------|
+| ![Login](assets/screenshots/login.png) | ![Sign Up](assets/screenshots/signup.png) | ![Forgot Password](assets/screenshots/forgot.png) |
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## ⚙️ Features
+- Clean UI design  
+- GetX state management  
+- Email & password validation  
+- Remember Me option  
+- Separate UI and controller files  
+
+---
+
+## 🚀 How to Run
+```bash
+git clone https://github.com/<your-username>/SecureLoginApp.git
+cd SecureLoginApp
+flutter pub get
+flutter run
