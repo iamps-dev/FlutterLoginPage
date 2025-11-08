@@ -1,6 +1,6 @@
-# 🔐 SecureLoginApp  
+# 🔐 SecureLoginPage  
 
-A Flutter app with **Login**, **Sign-Up**, and **Forgot Password** screens built using **GetX** for clean and simple state management.
+A Flutter project with **Login**, **Sign-Up**, and **Forgot Password** screens using **GetX** for clean and efficient state management.
 
 ---
 
@@ -13,17 +13,17 @@ A Flutter app with **Login**, **Sign-Up**, and **Forgot Password** screens built
 ---
 
 ## ⚙️ Features
-- Clean UI design  
-- GetX state management  
-- Email & password validation  
-- Remember Me option  
-- Separate UI and controller files  
+- Simple and modern UI design  
+- GetX for state management  
+- Email and password validation  
+- Remember Me functionality  
+- Separate controller and UI files  
 
 ---
 
 ## 🚀 How to Run
 ```bash
-git clone https://github.com/<your-username>/SecureLoginApp.git
-cd SecureLoginApp
+git clone https://github.com/<your-username>/SecureLoginPage.git
+cd SecureLoginPage
 flutter pub get
 flutter run
