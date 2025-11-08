@@ -4,13 +4,10 @@ A Flutter project with **Login**, **Sign-Up**, and **Forgot Password** screens u
 
 ---
 
-## 📸 Screenshots
-
 | Sign Up | Login | Forgot Password |
 |----------|--------|----------------|
-| ![Sign Up](assets/screenshots/signup.png) | ![Login](assets/screenshots/login.png) | ![Forgot Password](assets/screenshots/forgot.png) |
+| <img src="assets/screenshots/signup.png" alt="Sign Up" height="300"/> | <img src="assets/screenshots/login.png" alt="Login" height="300"/> | <img src="assets/screenshots/forgot.png" alt="Forgot Password" height="300"/> |
 
----
 
 ## ⚙️ Features
 - Simple and modern UI design  
