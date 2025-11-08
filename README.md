@@ -6,12 +6,9 @@ A Flutter project with **Login**, **Sign-Up**, and **Forgot Password** screens u
 
 ## 📸 Screenshots
 
-## 📸 Screenshots
-
 | Login | Sign Up | Forgot Password |
 |--------|----------|----------------|
 | ![Login](assets/screenshots/login.png) | ![Sign Up](assets/screenshots/signup.png) | ![Forgot Password](assets/screenshots/forgot.png) |
-
 
 ---
 
